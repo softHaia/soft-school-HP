@@ -1,40 +1,186 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
+  <!-- ページの基本設定 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>サンプルホームページ</title>
+
+  <!-- ページタイトル -->
+  <title>国府プログラミングスクール ソフト</title>
+
+  <!-- CSS読み込み -->
   <link rel="stylesheet" href="style.css">
+
 </head>
+
+
 <body>
 
-  <header>
-    <h1>こんにちは！</h1>
-    <p>GitHub Pagesで作ったサンプルホームページです。</p>
+
+  <!-- ==============================
+       ヘッダー
+       ============================== -->
+  <header class="site-header">
+
+    <div class="header-inner">
+
+
+      <!-- ==============================
+           左側：ロゴ・スクール名
+           ============================== -->
+      <a href="index.html" class="logo">
+
+
+        <!-- ロゴ画像 -->
+        <img
+          src="images/logo.png"
+          alt="国府プログラミングスクール ソフト"
+        >
+
+
+        <!-- スクール名 -->
+        <div class="logo-text">
+
+          <!-- スクール名 -->
+          <span class="school-name">
+            国府プログラミングスクール
+          </span>
+
+          <!-- キャッチコピー -->
+          <span class="school-subtitle">
+            たのしく学ぶ、未来をつくる
+          </span>
+
+        </div>
+
+
+        <!-- 「ソフト」の文字 -->
+        <span class="logo-soft">
+          ソフト
+        </span>
+
+
+      </a>
+
+
+
+      <!-- ==============================
+           右側：ナビゲーション
+           ============================== -->
+      <nav class="nav">
+
+        <a href="index.html" class="active">
+          ホーム
+        </a>
+
+        <a href="about.html">
+          教室について
+        </a>
+
+        <a href="lesson.html">
+          授業内容
+        </a>
+
+        <a href="price.html">
+          料金
+        </a>
+
+        <a href="event.html">
+          イベント
+        </a>
+
+        <a href="contact.html">
+          お問い合わせ
+        </a>
+
+      </nav>
+
+
+    </div>
+
   </header>
 
+
+
+  <!-- ==============================
+       メインコンテンツ
+       ============================== -->
   <main>
-    <section class="card">
-      <h2>このサイトについて</h2>
-      <p>
-        HTML・CSS・JavaScriptを使って作っています。<br>
-        GitHub Pagesを使えば、このページを無料で公開できます。
-      </p>
-      <button id="messageButton">ボタンを押してみる</button>
-      <p id="message"></p>
+
+
+    <!-- ==============================
+         メインビジュアル
+         ============================== -->
+    <section class="hero">
+
+
+      <!-- ==============================
+           キャッチコピー・説明文
+           ============================== -->
+      <div class="hero-content">
+
+
+        <!-- キャッチコピー -->
+        <h1>
+
+          たのしく学ぶ、<br>
+          プログラミングで、<br>
+          キミの未来をつくろう。
+
+        </h1>
+
+
+
+        <!-- 教室紹介文 -->
+        <p>
+
+          国府プログラミングスクール ソフトは、<br>
+          ゲーム制作を通してプログラミングを学べる教室です。<br>
+          子どもから大人まで、楽しく本格的に学べます。
+
+        </p>
+
+
+
+        <!-- 教室紹介ページへのボタン -->
+        <a href="about.html" class="hero-button">
+
+          教室について詳しく見る →
+
+        </a>
+
+
+      </div>
+
+
     </section>
 
-    <section class="card">
-      <h2>お問い合わせ</h2>
-      <p>お問い合わせはこちらからお願いします。</p>
-      <a class="contact-button" href="contact.html">お問い合わせフォームへ</a>
-    </section>
+
   </main>
 
+
+
+  <!-- ==============================
+       フッター
+       ============================== -->
   <footer>
-    <p>&copy; 2026 サンプルホームページ</p>
+
+    <p>
+      &copy; 2026 国府プログラミングスクール ソフト
+    </p>
+
   </footer>
 
+
+
+  <!-- ==============================
+       JavaScript読み込み
+       ============================== -->
   <script src="script.js"></script>
+
+
 </body>
+
 </html>

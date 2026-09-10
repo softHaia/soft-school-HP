@@ -1,98 +1,704 @@
+/* ========================================
+   ページ全体の基本設定
+   ======================================== */
+
 * {
   box-sizing: border-box;
 }
 
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
   margin: 0;
-  font-family: Arial, "Noto Sans JP", sans-serif;
-  line-height: 1.7;
-  background: #f4f7fb;
-  color: #333;
+  padding: 0;
+
+  font-family:
+    "Noto Sans JP",
+    "Yu Gothic",
+    "Hiragino Kaku Gothic ProN",
+    Meiryo,
+    sans-serif;
+
+  color: #222;
+
+  background-color: #f4f7fb;
 }
 
-header {
-  text-align: center;
-  padding: 60px 20px;
-  background: #005792;
-  color: white;
+
+
+/* ========================================
+   ヘッダー
+   ======================================== */
+
+.site-header {
+
+  /* ヒーロー画像の上に重ねる */
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 100;
+
+  background: transparent;
 }
 
-header h1 {
-  margin: 0 0 10px;
-  font-size: 2.2rem;
-}
 
-main {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
 
-.card {
-  background: white;
-  padding: 30px;
-  margin-bottom: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
+/* ========================================
+   ヘッダー内部
+   ======================================== */
 
-button,
-.contact-button {
-  display: inline-block;
-  padding: 12px 22px;
-  border: none;
-  border-radius: 8px;
-  background: #00a8e8;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 1rem;
-}
+.header-inner {
 
-button:hover,
-.contact-button:hover {
-  opacity: 0.85;
-}
+  position: relative;
 
-#message {
-  font-weight: bold;
-  margin-top: 15px;
-}
+  width: 100%;
 
-form {
+  min-height: 95px;
+
   display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  padding: 0 6%;
+
+}
+
+
+
+/* ========================================
+   ロゴ部分
+   ======================================== */
+
+.logo {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  min-height: 85px;
+
+  padding: 10px 55px 10px 35px;
+
+  color: #0068c9;
+
+  text-decoration: none;
+
+  z-index: 2;
+}
+
+
+
+/* ========================================
+   ロゴ部分の白い斜め背景
+   ======================================== */
+
+.logo::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100px;
+
+  width: 720px;
+  height: 95px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    88% 100%,
+    0 100%
+  );
+
+  z-index: -1;
+
+}
+
+
+
+/* ========================================
+   ロゴ画像
+   ======================================== */
+
+.logo img {
+
+  width: 58px;
+  height: 58px;
+
+  object-fit: contain;
+
+  flex-shrink: 0;
+
+}
+
+
+
+/* ========================================
+   スクール名部分
+   ======================================== */
+
+.logo-text {
+
+  display: flex;
+
   flex-direction: column;
+
+  justify-content: center;
+
+  white-space: nowrap;
+
 }
 
-label {
-  margin-top: 15px;
-  font-weight: bold;
+
+
+/* ========================================
+   スクール名
+   ======================================== */
+
+.school-name {
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  line-height: 1.2;
+
+  color: #0068c9;
+
 }
 
-input,
-textarea {
-  margin-top: 5px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
+
+
+/* ========================================
+   ロゴ下の小さい文字
+   ======================================== */
+
+.school-subtitle {
+
+  margin-top: 3px;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+
+  color: #1976d2;
+
 }
 
-form button {
-  margin-top: 20px;
-  width: fit-content;
+
+
+/* ========================================
+   「ソフト」の文字
+   ======================================== */
+
+.logo-soft {
+
+  margin-left: 2px;
+
+  font-size: 38px;
+
+  font-weight: 900;
+
+  font-style: italic;
+
+  letter-spacing: -0.08em;
+
+  color: #0877df;
+
 }
 
-.note {
-  margin-top: 25px;
-  padding: 15px;
-  background: #f0f0f0;
-  border-radius: 6px;
-  font-size: 0.9rem;
+
+
+/* ========================================
+   ナビゲーション
+   ======================================== */
+
+.nav {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 35px;
+
+  height: 80px;
+
+  /* ナビゲーションの背景 */
+  padding: 0 35px 0 45px;
+
+  /* 白を少し透けさせる */
+  background: rgba(255, 255, 255, 0.88);
+
+  /* 左側を斜めにする */
+  clip-path: polygon(
+    8% 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+
 }
+
+
+
+/* ========================================
+   ナビゲーションのリンク
+   ======================================== */
+
+.nav a {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  height: 80px;
+
+  color: #111;
+
+  text-decoration: none;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+
+}
+
+
+
+/* ========================================
+   ナビゲーション：マウスを乗せたとき
+   ======================================== */
+
+.nav a:hover {
+
+  color: #0078e8;
+
+}
+
+
+
+/* ========================================
+   現在のページ
+   ======================================== */
+
+.nav a.active {
+
+  color: #0078e8;
+
+}
+
+
+
+/* ========================================
+   現在のページの下線
+   ======================================== */
+
+.nav a.active::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  bottom: 13px;
+
+  height: 3px;
+
+  background: #00a8ff;
+
+  border-radius: 3px;
+
+}
+
+
+
+/* ========================================
+   メインビジュアル
+   ======================================== */
+
+.hero {
+
+  position: relative;
+
+  width: 100%;
+
+  min-height: 740px;
+
+  background-image: url("images/hero-bg.png");
+
+  background-size: cover;
+
+  background-position: center center;
+
+  background-repeat: no-repeat;
+
+  display: flex;
+
+  align-items: center;
+
+}
+
+
+
+/* ========================================
+   メインビジュアルの文字部分
+   ======================================== */
+
+.hero-content {
+
+  width: 100%;
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  padding: 120px 40px 80px;
+
+}
+
+
+
+/* ========================================
+   キャッチコピー
+   ======================================== */
+
+.hero h1 {
+
+  margin: 0 0 25px;
+
+  color: #fff;
+
+  font-size: clamp(42px, 4vw, 68px);
+
+  font-weight: 900;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.02em;
+
+  text-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.25);
+
+}
+
+
+
+/* ========================================
+   教室紹介文
+   ======================================== */
+
+.hero p {
+
+  margin: 0 0 30px;
+
+  color: #fff;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  line-height: 1.9;
+
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.3);
+
+}
+
+
+
+/* ========================================
+   ヒーローボタン
+   ======================================== */
+
+.hero-button {
+
+  display: inline-block;
+
+  padding: 16px 30px;
+
+  border-radius: 40px;
+
+  background: #00a9e8;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 5px 20px rgba(0, 174, 255, 0.35);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+
+}
+
+
+
+/* ========================================
+   ヒーローボタン：マウスを乗せたとき
+   ======================================== */
+
+.hero-button:hover {
+
+  background: #008fe0;
+
+  transform: translateY(-2px);
+
+}
+
+
+
+/* ========================================
+   フッター
+   ======================================== */
 
 footer {
+
+  padding: 55px 20px;
+
   text-align: center;
-  padding: 25px;
-  color: #666;
+
+  background: #f4f7fb;
+
+  color: #777;
+
+  font-size: 14px;
+
+}
+
+
+
+/* ========================================
+   スマートフォン対応
+   ======================================== */
+
+@media (max-width: 900px) {
+
+
+  /* ヘッダーを縦方向にする */
+
+  .header-inner {
+
+    min-height: auto;
+
+    padding: 0 20px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+  }
+
+
+
+  /* ロゴを少し小さくする */
+
+  .logo {
+
+    min-height: 75px;
+
+    padding-left: 10px;
+
+  }
+
+
+
+  .logo::before {
+
+    width:500px;
+
+    height: 80px;
+
+  }
+
+
+
+  .logo img {
+
+    width: 50px;
+    height: 50px;
+
+  }
+
+
+
+  .school-name {
+
+    font-size: 16px;
+
+  }
+
+
+
+  .logo-soft {
+
+    font-size: 30px;
+
+  }
+
+
+
+  /* ナビゲーション */
+
+  .nav {
+
+    width: 100%;
+
+    height: auto;
+
+    padding: 10px 0;
+
+    gap: 15px;
+
+    overflow-x: auto;
+
+  }
+
+
+
+  .nav a {
+
+    height: 45px;
+
+    font-size: 13px;
+
+  }
+
+
+
+  .nav a.active::after {
+
+    bottom: 2px;
+
+  }
+
+
+
+  /* ヒーロー */
+
+  .hero {
+
+    min-height: 700px;
+
+    align-items: flex-end;
+
+  }
+
+
+
+  .hero-content {
+
+    padding: 300px 25px 60px;
+
+  }
+
+
+
+  .hero h1 {
+
+    font-size: 38px;
+
+  }
+
+
+
+  .hero p {
+
+    font-size: 14px;
+
+  }
+
+}
+
+
+
+/* ========================================
+   さらに小さいスマートフォン
+   ======================================== */
+
+@media (max-width: 600px) {
+
+
+  .nav {
+
+    gap: 10px;
+
+  }
+
+
+
+  .nav a {
+
+    font-size: 12px;
+
+  }
+
+
+
+  .hero {
+
+    min-height: 700px;
+
+  }
+
+
+
+  .hero-content {
+
+    padding: 300px 20px 50px;
+
+  }
+
+
+
+  .hero h1 {
+
+    font-size: 32px;
+
+  }
+
+
+
+  .hero p {
+
+    font-size: 13px;
+
+  }
+
+
+
 }

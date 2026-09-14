@@ -6,12 +6,10 @@
   box-sizing: border-box;
 }
 
-
 html {
   margin: 0;
   padding: 0;
 }
-
 
 body {
   margin: 0;
@@ -28,7 +26,6 @@ body {
 
   background-color: #f4f7fb;
 }
-
 
 
 /* ========================================
@@ -51,7 +48,6 @@ body {
 }
 
 
-
 /* ========================================
    ヘッダー内部
    ======================================== */
@@ -71,9 +67,7 @@ body {
   justify-content: space-between;
 
   padding: 0 6%;
-
 }
-
 
 
 /* ========================================
@@ -102,9 +96,8 @@ body {
 }
 
 
-
 /* ========================================
-   ロゴ部分の白い斜め背景
+   ロゴ部分の白い背景
    ======================================== */
 
 .logo::before {
@@ -129,9 +122,7 @@ body {
   );
 
   z-index: -1;
-
 }
-
 
 
 /* ========================================
@@ -146,9 +137,7 @@ body {
   object-fit: contain;
 
   flex-shrink: 0;
-
 }
-
 
 
 /* ========================================
@@ -164,9 +153,7 @@ body {
   justify-content: center;
 
   white-space: nowrap;
-
 }
-
 
 
 /* ========================================
@@ -182,9 +169,7 @@ body {
   line-height: 1.2;
 
   color: #0068c9;
-
 }
-
 
 
 /* ========================================
@@ -202,9 +187,7 @@ body {
   letter-spacing: 0.04em;
 
   color: #1976d2;
-
 }
-
 
 
 /* ========================================
@@ -224,9 +207,7 @@ body {
   letter-spacing: -0.08em;
 
   color: #0877df;
-
 }
-
 
 
 /* ========================================
@@ -234,6 +215,8 @@ body {
    ======================================== */
 
 .nav {
+
+  position: relative;
 
   display: flex;
 
@@ -243,22 +226,20 @@ body {
 
   height: 80px;
 
-  /* ナビゲーションの背景 */
   padding: 0 35px 0 45px;
 
-  /* 白を少し透けさせる */
-  background: rgba(255, 255, 255, 0.88);
-
-  /* 左側を斜めにする */
-  clip-path: polygon(
-    8% 0,
-    100% 0,
-    100% 100%,
-    0 100%
+  /* 白から透明へ自然にフェード */
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.96),
+    rgba(255, 255, 255, 0.88),
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0)
   );
 
+  /* 三角形の切り抜きをやめる */
+  clip-path: none;
 }
-
 
 
 /* ========================================
@@ -285,10 +266,10 @@ body {
 
   white-space: nowrap;
 
-  transition: color 0.2s ease;
-
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
-
 
 
 /* ========================================
@@ -299,8 +280,8 @@ body {
 
   color: #0078e8;
 
+  transform: translateY(-2px);
 }
-
 
 
 /* ========================================
@@ -310,9 +291,7 @@ body {
 .nav a.active {
 
   color: #0078e8;
-
 }
-
 
 
 /* ========================================
@@ -326,7 +305,6 @@ body {
   position: absolute;
 
   left: 0;
-
   right: 0;
 
   bottom: 13px;
@@ -336,9 +314,7 @@ body {
   background: #00a8ff;
 
   border-radius: 3px;
-
 }
-
 
 
 /* ========================================
@@ -363,10 +339,14 @@ body {
 
   display: flex;
 
+  flex-direction: column;
+
   align-items: center;
 
-}
+  justify-content: center;
 
+  overflow: hidden;
+}
 
 
 /* ========================================
@@ -375,16 +355,18 @@ body {
 
 .hero-content {
 
+  position: relative;
+
+  z-index: 2;
+
   width: 100%;
 
-  max-width: 1250px;
+  max-width: 1700px;
 
   margin: 0 auto;
 
-  padding: 120px 40px 80px;
-
+  padding: 145px 40px 180px;
 }
-
 
 
 /* ========================================
@@ -407,9 +389,7 @@ body {
 
   text-shadow:
     0 3px 8px rgba(0, 0, 0, 0.25);
-
 }
-
 
 
 /* ========================================
@@ -430,9 +410,7 @@ body {
 
   text-shadow:
     0 2px 5px rgba(0, 0, 0, 0.3);
-
 }
-
 
 
 /* ========================================
@@ -463,9 +441,7 @@ body {
   transition:
     transform 0.2s ease,
     background 0.2s ease;
-
 }
-
 
 
 /* ========================================
@@ -477,9 +453,277 @@ body {
   background: #008fe0;
 
   transform: translateY(-2px);
-
 }
 
+
+/* ========================================
+   4つのコースボタン全体
+   ======================================== */
+
+.course-buttons {
+
+  position: absolute;
+
+  z-index: 5;
+
+  left: 50%;
+
+  bottom: 22px;
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 80px);
+
+  max-width: 1050px;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 24px;
+}
+
+
+/* ========================================
+   コースボタン共通
+   ======================================== */
+
+.course-card {
+
+  position: relative;
+
+  min-height: 108px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 24px 24px;
+
+  border-radius: 10px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 22px rgba(0, 0, 0, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+
+/* ========================================
+   コースボタン：マウスを乗せたとき
+   ======================================== */
+
+.course-card:hover {
+
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.28);
+
+  filter: brightness(1.08);
+}
+
+
+/* ========================================
+   コースボタンの光沢
+   ======================================== */
+
+.course-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    110deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.5s ease;
+}
+
+
+.course-card:hover::before {
+
+  left: 130%;
+}
+
+
+/* ========================================
+   各コースの色
+   ======================================== */
+
+.qureo-card {
+
+  background: linear-gradient(
+    135deg,
+    #079eea,
+    #087de0
+  );
+}
+
+
+.unity-card {
+
+  background: linear-gradient(
+    135deg,
+    #5a5be8,
+    #4140c9
+  );
+}
+
+
+.csharp-card {
+
+  background: linear-gradient(
+    135deg,
+    #12cfc8,
+    #00a9bd
+  );
+}
+
+
+.web-card {
+
+  background: linear-gradient(
+    135deg,
+    #ec4d91,
+    #d93683
+  );
+}
+
+
+/* ========================================
+   コースアイコン
+   ======================================== */
+
+.course-icon {
+
+  position: relative;
+
+  z-index: 1;
+
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border: 2px solid rgba(255, 255, 255, 0.85);
+
+  border-radius: 12px;
+
+  font-size: 26px;
+
+  font-weight: 900;
+
+  color: #fff;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* ========================================
+   C#アイコン
+   ======================================== */
+
+.csharp-icon {
+
+  font-size: 18px;
+
+  border-radius: 50%;
+}
+
+
+/* ========================================
+   コース名・説明文
+   ======================================== */
+
+.course-text {
+
+  position: relative;
+
+  z-index: 1;
+
+  flex: 1;
+
+  min-width: 0;
+}
+
+
+.course-text h3 {
+
+  margin: 0 0 6px;
+
+  font-size: 20px;
+
+  font-weight: 900;
+
+  line-height: 1.2;
+
+  white-space: nowrap;
+}
+
+
+.course-text p {
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.95);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  text-shadow: none;
+}
+
+
+/* ========================================
+   コースボタンの矢印
+   ======================================== */
+
+.course-arrow {
+
+  position: relative;
+
+  z-index: 1;
+
+  align-self: flex-end;
+
+  font-size: 24px;
+
+  font-weight: 400;
+
+  line-height: 1;
+}
 
 
 /* ========================================
@@ -497,9 +741,65 @@ footer {
   color: #777;
 
   font-size: 14px;
-
 }
 
+
+/* ========================================
+   タブレット対応
+   ======================================== */
+
+@media (max-width: 1100px) {
+
+  .header-inner {
+
+    padding: 0 25px;
+  }
+
+  .nav {
+
+    gap: 20px;
+
+    padding: 0 20px;
+  }
+
+  .nav a {
+
+    font-size: 13px;
+  }
+
+  .course-buttons {
+
+    width: calc(100% - 40px);
+
+    gap: 10px;
+  }
+
+  .course-card {
+
+    padding: 14px 12px;
+
+    gap: 8px;
+  }
+
+  .course-icon {
+
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+
+    font-size: 22px;
+  }
+
+  .course-text h3 {
+
+    font-size: 17px;
+  }
+
+  .course-text p {
+
+    font-size: 10px;
+  }
+}
 
 
 /* ========================================
@@ -507,7 +807,6 @@ footer {
    ======================================== */
 
 @media (max-width: 900px) {
-
 
   /* ヘッダーを縦方向にする */
 
@@ -520,9 +819,7 @@ footer {
     flex-direction: column;
 
     align-items: flex-start;
-
   }
-
 
 
   /* ロゴを少し小さくする */
@@ -532,44 +829,34 @@ footer {
     min-height: 75px;
 
     padding-left: 10px;
-
   }
-
 
 
   .logo::before {
 
-    width:500px;
+    width: 500px;
 
     height: 80px;
-
   }
-
 
 
   .logo img {
 
     width: 50px;
     height: 50px;
-
   }
-
 
 
   .school-name {
 
     font-size: 16px;
-
   }
-
 
 
   .logo-soft {
 
     font-size: 30px;
-
   }
-
 
 
   /* ナビゲーション */
@@ -586,8 +873,8 @@ footer {
 
     overflow-x: auto;
 
+    background: rgba(255, 255, 255, 0.92);
   }
-
 
 
   .nav a {
@@ -595,55 +882,66 @@ footer {
     height: 45px;
 
     font-size: 13px;
-
   }
-
 
 
   .nav a.active::after {
 
     bottom: 2px;
-
   }
-
 
 
   /* ヒーロー */
 
   .hero {
 
-    min-height: 700px;
+    min-height: 1050px;
 
-    align-items: flex-end;
+    align-items: center;
 
+    justify-content: flex-start;
   }
-
 
 
   .hero-content {
 
-    padding: 300px 25px 60px;
-
+    padding: 280px 25px 400px;
   }
-
 
 
   .hero h1 {
 
     font-size: 38px;
-
   }
-
 
 
   .hero p {
 
     font-size: 14px;
-
   }
 
-}
 
+  /* コースボタンを2列にする */
+
+  .course-buttons {
+
+    bottom: 30px;
+
+    width: calc(100% - 40px);
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+  }
+
+
+  .course-card {
+
+    min-height: 100px;
+
+    padding: 14px;
+  }
+}
 
 
 /* ========================================
@@ -652,53 +950,117 @@ footer {
 
 @media (max-width: 600px) {
 
-
   .nav {
 
     gap: 10px;
-
   }
-
 
 
   .nav a {
 
     font-size: 12px;
-
   }
-
 
 
   .hero {
 
-    min-height: 700px;
-
+    min-height: 1100px;
   }
-
 
 
   .hero-content {
 
-    padding: 300px 20px 50px;
-
+    padding: 270px 20px 430px;
   }
-
 
 
   .hero h1 {
 
     font-size: 32px;
-
   }
-
 
 
   .hero p {
 
     font-size: 13px;
+  }
+  
+.hero-content h1 {
+  color: #eaf6ff;
+  text-shadow: 0 3px 8px rgba(0, 35, 80, 0.8);
+}
 
+.hero-content p {
+  color: #dceeff;
+  text-shadow: 0 2px 6px rgba(0, 35, 80, 0.8);
+}
+
+  /* スマホでは1列にする */
+
+  .course-buttons {
+
+    grid-template-columns: 1fr;
+
+    width: calc(100% - 40px);
+
+    gap: 10px;
   }
 
 
+  .course-card {
 
+    min-height: 86px;
+
+    padding: 12px 16px;
+  }
+
+
+  .course-icon {
+
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+  }
+
+
+  .course-text h3 {
+
+    font-size: 18px;
+  }
+
+
+  .course-text p {
+
+    font-size: 11px;
+  }
+}
+
+/* ヒーローの文字を読みやすくする */
+.hero-content h1 {
+  color: #eaf6ff;
+  text-shadow:
+    0 3px 0 rgba(0, 35, 80, 0.55),
+    0 5px 12px rgba(0, 20, 60, 0.85);
+}
+
+.hero-content p {
+  color: #dceeff;
+  text-shadow:
+    0 2px 0 rgba(0, 35, 80, 0.55),
+    0 3px 8px rgba(0, 20, 60, 0.85);
+}
+
+/* ヒーローの文字を読みやすくする */
+.hero-content h1 {
+  color: #eaf6ff;
+  text-shadow:
+    0 3px 0 rgba(0, 35, 80, 0.55),
+    0 5px 12px rgba(0, 20, 60, 0.85);
+}
+
+.hero-content p {
+  color: #dceeff;
+  text-shadow:
+    0 2px 0 rgba(0, 35, 80, 0.55),
+    0 3px 8px rgba(0, 20, 60, 0.85);
 }

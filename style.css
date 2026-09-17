@@ -1064,3 +1064,482 @@ footer {
     0 2px 0 rgba(0, 35, 80, 0.55),
     0 3px 8px rgba(0, 20, 60, 0.85);
 }
+
+/* =========================
+   メインコンテンツ：教室紹介
+========================= */
+
+/* 教室紹介全体 */
+.about-section {
+  padding: 100px 30px;
+  background: #f5fbff;
+}
+
+/* 教室紹介の横並び部分 */
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+/* 左側の文章 */
+.about-text {
+  color: #234b68;
+}
+
+/* Aboutの小さな見出し */
+.section-label {
+  margin: 0 0 8px;
+  color: #009fe3;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+/* 教室紹介の大見出し */
+.about-text h2 {
+  margin: 0 0 30px;
+  color: #005792;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+/* 教室紹介の文章 */
+.about-text p:not(.section-label) {
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 2;
+}
+
+/* 教室紹介ボタン */
+.about-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 18px;
+  padding: 14px 28px;
+
+  border: 2px solid #00a9e8;
+  border-radius: 999px;
+
+  color: #008dcc;
+  background: #ffffff;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ボタンにマウスを乗せたとき */
+.about-button:hover {
+  color: #ffffff;
+  background: #00a9e8;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0, 120, 190, 0.25);
+}
+
+/* =========================
+   教室紹介の仮イメージ
+========================= */
+
+.about-image {
+  width: 100%;
+}
+
+/* 画像を入れる場所の仮デザイン */
+.about-image-placeholder {
+  min-height: 350px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 169, 232, 0.9),
+      rgba(0, 87, 146, 0.95)
+    );
+
+  color: #ffffff;
+
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 70, 120, 0.2);
+}
+
+/* 仮イメージの絵文字 */
+.about-image-placeholder span {
+  margin-bottom: 18px;
+  font-size: 80px;
+}
+
+/* 仮イメージの文章 */
+.about-image-placeholder p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+/* =========================
+   タブレット対応
+========================= */
+
+@media (max-width: 900px) {
+  .about-section {
+    padding: 80px 25px;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 36px;
+  }
+
+  .about-image-placeholder {
+    min-height: 300px;
+  }
+}
+
+/* =========================
+   スマホ対応
+========================= */
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 65px 20px;
+  }
+
+  .about-text h2 {
+    font-size: 30px;
+  }
+
+  .about-text p:not(.section-label) {
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  .about-button {
+    padding: 12px 22px;
+    font-size: 14px;
+  }
+
+  .about-image-placeholder {
+    min-height: 240px;
+    border-radius: 18px;
+  }
+
+  .about-image-placeholder span {
+    font-size: 60px;
+  }
+
+  .about-image-placeholder p {
+    font-size: 20px;
+  }
+}
+
+/* =========================
+   メインコンテンツ：学べるコース
+========================= */
+
+/* コース紹介セクション全体 */
+.courses-section {
+  padding: 100px 30px;
+  background: #eaf7ff;
+}
+
+/* コース紹介の横幅 */
+.courses-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   セクション見出し
+========================= */
+
+.section-heading {
+  margin-bottom: 45px;
+}
+
+/* Courseの小さな文字 */
+.section-heading .section-label {
+  margin: 0 0 8px;
+  color: #009fe3;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+/* 学べるコースの見出し */
+.section-heading h2 {
+  display: inline-block;
+  margin: 0 25px 0 0;
+  color: #005792;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+/* 見出し横の説明文 */
+.section-description {
+  display: inline-block;
+  margin: 0;
+  color: #28709c;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* =========================
+   コースカード一覧
+========================= */
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+/* コースカード */
+.course-detail-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  min-height: 410px;
+  overflow: hidden;
+
+  border-radius: 18px;
+  color: #ffffff;
+
+  box-shadow: 0 10px 25px rgba(0, 70, 120, 0.18);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* カードにマウスを乗せたとき */
+.course-detail-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 70, 120, 0.28);
+}
+
+/* =========================
+   コースカード上部のイメージ
+========================= */
+
+.course-detail-image {
+  min-height: 155px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* 仮イメージの絵文字・文字 */
+.course-detail-image span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 105px;
+  height: 105px;
+
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  font-size: 58px;
+  font-weight: 900;
+}
+
+/* =========================
+   コースカードの文章
+========================= */
+
+.course-detail-content {
+  flex: 1;
+  padding: 25px 24px 28px;
+}
+
+/* コース名 */
+.course-detail-content h3 {
+  margin: 0 0 8px;
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+/* コースの短い説明 */
+.course-detail-subtitle {
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+/* コースの詳しい文章 */
+.course-detail-content p:not(.course-detail-subtitle) {
+  margin: 0 0 25px;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* 詳しく見る */
+.course-detail-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 9px 17px;
+
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+/* 詳しく見るにマウスを乗せたとき */
+.course-detail-card:hover .course-detail-link {
+  color: #005792;
+  background: #ffffff;
+}
+
+/* =========================
+   コースごとのカラー
+========================= */
+
+/* QUREO */
+.qureo-detail-card {
+  background: linear-gradient(
+    145deg,
+    #00a9f4,
+    #0077d4
+  );
+}
+
+/* Unity */
+.unity-detail-card {
+  background: linear-gradient(
+    145deg,
+    #6555ed,
+    #4038c7
+  );
+}
+
+/* C# */
+.csharp-detail-card {
+  background: linear-gradient(
+    145deg,
+    #16c9ca,
+    #00a1b8
+  );
+}
+
+/* Web・デザイン */
+.web-detail-card {
+  background: linear-gradient(
+    145deg,
+    #f45b9c,
+    #df287e
+  );
+}
+
+/* =========================
+   タブレット対応
+========================= */
+
+@media (max-width: 1000px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .course-detail-card {
+    min-height: 390px;
+  }
+
+  .section-heading h2 {
+    display: block;
+    margin: 0 0 10px;
+  }
+
+  .section-description {
+    display: block;
+  }
+}
+
+/* =========================
+   スマホ対応
+========================= */
+
+@media (max-width: 600px) {
+  .courses-section {
+    padding: 65px 20px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+
+  .section-description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .course-detail-card {
+    min-height: 0;
+  }
+
+  .course-detail-image {
+    min-height: 135px;
+  }
+
+  .course-detail-content {
+    padding: 22px;
+  }
+
+  .course-detail-content h3 {
+    font-size: 25px;
+  }
+}
